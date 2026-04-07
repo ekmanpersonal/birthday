@@ -53,10 +53,16 @@
       margin: 10px 0;
     }
 
-    video {
+    .gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
       width: 90%;
       max-width: 400px;
-      margin-top: 20px;
+    }
+
+    .gallery img {
+      width: 100%;
       border: 2px solid #00ffcc;
     }
   </style>
@@ -74,22 +80,25 @@
   <div class="card">Energy: unpredictable</div>
   <div class="card">Vibe: unmatched</div>
   <div class="card">Trust: rare</div>
-  <div class="card">Mode: Always Mad</div>
 
   <button onclick="showSecret()">Access Hidden File</button>
 </div>
 
 <div id="secret" class="center hidden">
-  <p>You don’t say much. But you show up.</p>
+  <p>You don’t say much. But you show up. That’s what matters.</p>
   <button onclick="finalScreen()">Continue</button>
 </div>
 
 <div id="final" class="center hidden">
   <h1>HAPPY BIRTHDAY 🎂</h1>
-  <video id="video" controls autoplay>
-    <source src="video.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
+
+  <div class="gallery">
+    <img src="img1.jpeg">
+    <img src="img2.png">
+    <img src="img3.jpeg">
+    <img src="img4.jpeg">
+  </div>
+
 </div>
 
 <script>
@@ -115,9 +124,6 @@
   function finalScreen() {
     document.getElementById("secret").classList.add("hidden");
     document.getElementById("final").classList.remove("hidden");
-
-    let vid = document.getElementById("video");
-    vid.play();
   }
 </script>
 
