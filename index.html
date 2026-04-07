@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>System Scan</title>
+  <style>
+    body {
+      margin: 0;
+      background: #0a0a0a;
+      color: #00ffcc;
+      font-family: monospace;
+      overflow: hidden;
+    }
+
+    .center {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .hidden { display: none; }
+
+    .bar {
+      width: 80%;
+      height: 10px;
+      border: 1px solid #00ffcc;
+      margin-top: 20px;
+    }
+
+    .progress {
+      height: 100%;
+      width: 0%;
+      background: #00ffcc;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #00ffcc;
+      color: black;
+      border: none;
+      cursor: pointer;
+    }
+
+    .card {
+      border: 1px solid #00ffcc;
+      padding: 15px;
+      margin: 10px 0;
+    }
+
+    video {
+      width: 90%;
+      max-width: 400px;
+      margin-top: 20px;
+      border: 2px solid #00ffcc;
+    }
+  </style>
+</head>
+<body>
+
+<div id="loading" class="center">
+  <div>Scanning user data...</div>
+  <div class="bar"><div class="progress" id="progress"></div></div>
+</div>
+
+<div id="dashboard" class="center hidden">
+  <h2>USER PROFILE: FATEH</h2>
+
+  <div class="card">Energy: unpredictable</div>
+  <div class="card">Vibe: unmatched</div>
+  <div class="card">Trust: rare</div>
+  <div class="card">Mode: Always Mad</div>
+
+  <button onclick="showSecret()">Access Hidden File</button>
+</div>
+
+<div id="secret" class="center hidden">
+  <p>You don’t say much. But you show up.</p>
+  <button onclick="finalScreen()">Continue</button>
+</div>
+
+<div id="final" class="center hidden">
+  <h1>HAPPY BIRTHDAY 🎂</h1>
+  <video id="video" controls autoplay>
+    <source src="video.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+
+<script>
+  let progress = 0;
+  let bar = document.getElementById("progress");
+
+  let interval = setInterval(() => {
+    progress += 2;
+    bar.style.width = progress + "%";
+
+    if (progress >= 100) {
+      clearInterval(interval);
+      document.getElementById("loading").classList.add("hidden");
+      document.getElementById("dashboard").classList.remove("hidden");
+    }
+  }, 50);
+
+  function showSecret() {
+    document.getElementById("dashboard").classList.add("hidden");
+    document.getElementById("secret").classList.remove("hidden");
+  }
+
+  function finalScreen() {
+    document.getElementById("secret").classList.add("hidden");
+    document.getElementById("final").classList.remove("hidden");
+
+    let vid = document.getElementById("video");
+    vid.play();
+  }
+</script>
+
+</body>
+</html>
