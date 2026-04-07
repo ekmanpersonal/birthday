@@ -52,19 +52,6 @@
       padding: 15px;
       margin: 10px 0;
     }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      width: 90%;
-      max-width: 400px;
-    }
-
-    .gallery img {
-      width: 100%;
-      border: 2px solid #00ffcc;
-    }
   </style>
 </head>
 <body>
@@ -75,23 +62,49 @@
 </div>
 
 <div id="dashboard" class="center hidden">
-  <h2>USER PROFILE: FATEH</h2>
+  <h2>USER PROFILE: FRIEND</h2>
 
   <div class="card">Energy: unpredictable</div>
   <div class="card">Vibe: unmatched</div>
-  <div class="card">Mood: happy but can get angry fast</div>
+  <div class="card">mood : not constant</div>
 
   <button onclick="showSecret()">Access Hidden File</button>
 </div>
 
 <div id="secret" class="center hidden">
-  <p></p>
+  <p>Nothing here</p>
   <button onclick="finalScreen()">Continue</button>
 </div>
 
 <div id="final" class="center hidden">
   <h1>HAPPY BIRTHDAY 🎂</h1>
 
+</div>
+
+<script>
+  let progress = 0;
+  let bar = document.getElementById("progress");
+
+  let interval = setInterval(() => {
+    progress += 2;
+    bar.style.width = progress + "%";
+
+    if (progress >= 100) {
+      clearInterval(interval);
+      document.getElementById("loading").classList.add("hidden");
+      document.getElementById("dashboard").classList.remove("hidden");
+    }
+  }, 50);
+
+  function showSecret() {
+    document.getElementById("dashboard").classList.add("hidden");
+    document.getElementById("secret").classList.remove("hidden");
+  }
+
+  function finalScreen() {
+    document.getElementById("secret").classList.add("hidden");
+    document.getElementById("final").classList.remove("hidden");
+  }
 </script>
 
 </body>
