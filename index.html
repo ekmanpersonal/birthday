@@ -79,52 +79,19 @@
 
   <div class="card">Energy: unpredictable</div>
   <div class="card">Vibe: unmatched</div>
-  <div class="card">Trust: rare</div>
+  <div class="card">Mood: happy but can get angry fast</div>
 
   <button onclick="showSecret()">Access Hidden File</button>
 </div>
 
 <div id="secret" class="center hidden">
-  <p>You don’t say much. But you show up. That’s what matters.</p>
+  <p></p>
   <button onclick="finalScreen()">Continue</button>
 </div>
 
 <div id="final" class="center hidden">
   <h1>HAPPY BIRTHDAY 🎂</h1>
 
-  <div class="gallery">
-    <img src="img1.jpeg">
-    <img src="img2.png">
-    <img src="img3.jpeg">
-    <img src="img4.jpeg">
-  </div>
-
-</div>
-
-<script>
-  let progress = 0;
-  let bar = document.getElementById("progress");
-
-  let interval = setInterval(() => {
-    progress += 2;
-    bar.style.width = progress + "%";
-
-    if (progress >= 100) {
-      clearInterval(interval);
-      document.getElementById("loading").classList.add("hidden");
-      document.getElementById("dashboard").classList.remove("hidden");
-    }
-  }, 50);
-
-  function showSecret() {
-    document.getElementById("dashboard").classList.add("hidden");
-    document.getElementById("secret").classList.remove("hidden");
-  }
-
-  function finalScreen() {
-    document.getElementById("secret").classList.add("hidden");
-    document.getElementById("final").classList.remove("hidden");
-  }
 </script>
 
 </body>
